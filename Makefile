@@ -7,20 +7,21 @@
 
 MAKEFLAGS += -j
 
-NAME := my_radar
+NAME := secured
 
 LIB_NAME := libmy.a
 
 SRC := $(wildcard src/*.c)
-SRC += $(wildcard src/render/*.c)
-SRC += $(wildcard src/window/*.c)
-SRC += $(wildcard src/events/*.c)
-SRC += $(wildcard src/sprites/*.c)
+# SRC += $(wildcard src/render/*.c)
+# SRC += $(wildcard src/window/*.c)
+# SRC += $(wildcard src/events/*.c)
+# SRC += $(wildcard src/sprites/*.c)
 
-LIB_SRC := $(wildcard lib/my/*.c)
-LIB_SRC += $(wildcard lib/my/printf/*.c)
-LIB_SRC += $(wildcard lib/my/printf/baby/*.c)
-LIB_SRC += $(wildcard lib/my/printf/handler/*.c)
+# LIB_SRC := $(wildcard lib/my/*.c)
+# LIB_SRC += $(wildcard lib/my/printf/*.c)
+# LIB_SRC += $(wildcard lib/my/printf/baby/*.c)
+# LIB_SRC += $(wildcard lib/my/printf/handler/*.c)
+# METTRE MA LIB
 
 BUILD_DIR := .build
 
