@@ -7,6 +7,7 @@
 
 #ifndef SECURED_H
     #include "colors.h"
+    #include <string.h>
     #define SECURED_H
     #define OMIT
     #define RETURN_SUCCESS 0
