@@ -10,9 +10,8 @@
 .vscode
 
 # Bin
-my_radar
+libhashtable.a
 a.out
-libmy.a
 test
 
 # Build
