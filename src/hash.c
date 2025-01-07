@@ -7,7 +7,7 @@
 
 #include "secured.h"
 
-int calcul_hash(char *key, int len)
+int hash(char *key, int len)
 {
     int hash = 0;
     int i = 0;

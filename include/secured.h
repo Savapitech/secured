@@ -36,6 +36,4 @@
         #define MY_DEBUG_CALL(func, ...) OMIT
         #define MY_DEBUG_USED __attribute__((unused))
     #endif
-
-int calcul_hash(char *key, int len);
 #endif /* SECURED_H */
