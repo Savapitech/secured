@@ -52,6 +52,16 @@ jobs:
             --extra-experimental-features 'nix-command flakes' \
             -- . --ignore-rules=C-O1
 
+      - name: Build project
+        run: |
+          make
+
+      - name: Check for banned functions
+        run: |
+          nix run github:Dawoox/efc -- \
+            ./libhashtable.a \
+            ./afunc.txt
+
   sync_repository:
     needs: [ check_the_repository_state ]
     if: ${{ !github.event.pull_request }}
