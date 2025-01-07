@@ -8,6 +8,8 @@
 #ifndef HASTABLE_H_
     #define HASTABLE_H_
 
+    #include <string.h>
+
 typedef struct hashtable_s {
     // code
 } hashtable_t;
