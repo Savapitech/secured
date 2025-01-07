@@ -7,26 +7,16 @@
 
 MAKEFLAGS += -j
 
-NAME := secured
-
-LIB_NAME := libmy.a
+NAME := libhashtable.a
 
 SRC := $(wildcard src/*.c)
-# SRC += $(wildcard src/render/*.c)
-# SRC += $(wildcard src/window/*.c)
-# SRC += $(wildcard src/events/*.c)
-# SRC += $(wildcard src/sprites/*.c)
 
-# LIB_SRC := $(wildcard lib/my/*.c)
-# LIB_SRC += $(wildcard lib/my/printf/*.c)
-# LIB_SRC += $(wildcard lib/my/printf/baby/*.c)
-# LIB_SRC += $(wildcard lib/my/printf/handler/*.c)
-# METTRE MA LIB
+LIB_SRC := $(wildcard lib/functions/int/*.c)
+LIB_SRC += $(wildcard lib/functions/print/*.c)
+LIB_SRC += $(wildcard lib/functions/str/*.c)
+LIB_SRC += $(wildcard lib/functions/tab/*.c)
 
 BUILD_DIR := .build
-
-TEST_SRC := tests/main.c
-TEST_OBJ := $(TEST_SRC:%.c=$(BUILD_DIR)/%.o)
 
 OBJ := $(SRC:%.c=$(BUILD_DIR)/%.o)
 LIB_OBJ := $(LIB_SRC:%.c=$(BUILD_DIR)/%.o)
@@ -45,9 +35,6 @@ CFLAGS += -Werror=vla-larger-than=0 -Wno-discarded-qualifiers
 
 DEBUG_FLAGS := -DR_DEBUG_MODE -g3
 
-LDFLAGS += -L .
-LDLIBS := -lmy
-
 include utils.mk
 
 all: $(NAME)
@@ -57,13 +44,9 @@ $(BUILD_DIR)/%.o: %.c
 	@ $(CC) $(CFLAGS) -o $@ -c $<
 	@ $(LOG_TIME) "$(C_GREEN) CC $(C_PURPLE) $(notdir $@) $(C_RESET)"
 
-$(LIB_NAME): $(LIB_OBJ)
-	@ ar rc $(LIB_NAME) $(LIB_OBJ)
+$(NAME): $(LIB_OBJ) $(OBJ)
+	@ ar rc $(NAME) $(LIB_OBJ) $(OBJ)
 	@ $(LOG_TIME) "$(C_CYAN) AR $(C_PURPLE) $(notdir $@) $(C_RESET)"
-
-$(NAME): $(LIB_NAME) $(OBJ)
-	@ $(CC) $(CFLAGS) $(OBJ) $(LDFLAGS) $(LDLIBS) -o $(NAME)
-	@ $(LOG_TIME) "$(C_GREEN) CC $(C_PURPLE) $(notdir $@) $(C_RESET)"
 	@ $(LOG_TIME) "$(C_GREEN) OK  Compilation finished $(C_RESET)"
 
 clean:
@@ -73,8 +56,6 @@ clean:
 fclean:
 	@ $(RM) -r $(NAME) $(BUILD_DIR)
 	@ $(LOG_TIME) "$(C_YELLOW) RM $(C_PURPLE) $(NAME) $(BUILD_DIR) $(C_RESET)"
-	@ $(RM) $(LIB_NAME)
-	@ $(LOG_TIME) "$(C_YELLOW) RM $(C_PURPLE) $(LIB_NAME) $(C_RESET)"
 
 .NOTPARALLEL: re
 re:	fclean all
