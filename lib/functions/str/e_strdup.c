@@ -9,9 +9,11 @@
 
 char *e_strdup(char const *src)
 {
-    char *str = malloc(sizeof(char) * (my_strlen(src) + 1));
+    char *str = malloc(sizeof(char) * (e_strlen(src) + 1));
     int i = 0;
 
+    if (str == NULL)
+        return NULL;
     for (; src[i] != '\0'; i++)
         str[i] = src[i];
     str[i] = '\0';

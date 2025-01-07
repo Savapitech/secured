@@ -10,8 +10,8 @@
 int e_print_tab(char *const *tab)
 {
     for (int i = 0; tab[i] != NULL; i++) {
-        my_putstr(tab[i]);
-        my_putchar('\n');
+        e_putstr(tab[i]);
+        e_putchar('\n');
     }
     return 0;
 }

@@ -29,6 +29,7 @@ int e_nb_len(int nb);
 void e_putchar(char c);
 int e_putstr(char const *str);
 int e_print_tab(char *const *tab);
+void e_puterr(char const *str);
 
 // str
 char *e_revstr(char *str);
