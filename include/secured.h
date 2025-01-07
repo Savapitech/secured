@@ -12,8 +12,8 @@
     #define OMIT
     #define RETURN_SUCCESS 0
     #define RETURN_FAILURE 84
-    #define FAILURE_MSG(str) (my_puterr(str "\n"), RETURN_FAILURE)
-    #define FAILURE_MSG_PTR(str) (my_puterr(str "\n"), NULL)
+    #define FAILURE_MSG(str) (e_puterr(str "\n"), RETURN_FAILURE)
+    #define FAILURE_MSG_PTR(str) (e_puterr(str "\n"), NULL)
 
     #ifdef R_DEBUG_MODE
         #define HEAD __FILE_NAME__, __LINE__
