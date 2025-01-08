@@ -5,6 +5,8 @@
 ** e_delete_node
 */
 
+#include <stdlib.h>
+
 #include "eyes.h"
 #include "secured.h"
 

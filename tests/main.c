@@ -13,6 +13,5 @@ int main(void)
 
     ht_dump(ht);
     ht_insert(ht, "oui", "non");
-    delete_hashtable(ht);
     ht_dump(ht);
 }
