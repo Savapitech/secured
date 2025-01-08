@@ -6,6 +6,7 @@
 */
 
 #include "secured.h"
+#include <stdio.h>
 
 int main(void)
 {
@@ -14,4 +15,5 @@ int main(void)
     ht_dump(ht);
     ht_insert(ht, "oui", "non");
     ht_dump(ht);
+    printf("ht_search value: %s\n", ht_search(ht, "oui"));
 }
