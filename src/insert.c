@@ -16,7 +16,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
 
     if (ht == NULL)
         return -1;
-    hash_vl = hash(key, e_strlen(key));
+    hash_vl = ht->fnct_hash(key, e_strlen(key));
     hash_len = ht->len;
     if (!hash_len)
         return -1;
