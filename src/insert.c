@@ -28,6 +28,6 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
         return FAILURE_MSG("Error when inserting data in node !");
     if (ht[hash_i].data == NULL)
         return FAILURE_MSG("Cannot create linked list to insert !");
-    MY_DEBUG("Inst hash_vl [%d] hash_i [%lu]\n", hash_len, hash_vl, hash_i);
+    MY_DEBUG("Inst hash_vl [%d] hash_i [%lu]\n", hash_vl, hash_i);
     return hash_vl;
 }
