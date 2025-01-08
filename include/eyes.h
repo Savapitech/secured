@@ -26,7 +26,7 @@ int e_nb_len(int nb);
 
 // linked_list
 int e_add_node(node_t **head, char *data);
-node_t *e_create_linked_list(void);
+node_t *e_create_linked_list(char *data);
 int e_delete_node(node_t **head, node_t *node);
 
 // print

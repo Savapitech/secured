@@ -10,6 +10,13 @@
 #include "eyes.h"
 #include "secured.h"
 
+static
+void dump_data(hashtable_t *ht, size_t i)
+{
+    for (; ht[i].data != NULL; ht[i].data = ht[i].data->next)
+    printf("> %01d - %s\n", ht[i].hash, ht[i].data->data);
+}
+
 void ht_dump(hashtable_t *ht)
 {
     size_t len;
@@ -20,6 +27,6 @@ void ht_dump(hashtable_t *ht)
     for (size_t i = 0; i < len; i++) {
         printf("[%01lu]:\n", i);
         if (ht[i].data != NULL)
-            printf("> %01d - %s\n", ht[i].hash, ht[i].data->data);
+            dump_data(ht, i);
     }
 }
