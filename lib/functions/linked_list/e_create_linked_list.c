@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-#include "eyes.h"
+#include "secured.h"
 
 node_t *e_create_linked_list(char *data, int hash)
 {
