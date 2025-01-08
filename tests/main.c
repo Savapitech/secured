@@ -14,6 +14,13 @@ int main(void)
 
     ht_dump(ht);
     ht_insert(ht, "oui", "non");
+    printf("---------------------------------------------------------------------\n");
+    ht_dump(ht);
+    ht_insert(ht, "non", "oui");
+    printf("---------------------------------------------------------------------\n");
+    ht_dump(ht);
+    ht_delete(ht, "oui");
+    printf("---------------------------------------------------------------------\n");
     ht_dump(ht);
     printf("ht_search value: %s\n", ht_search(ht, "oui"));
 }

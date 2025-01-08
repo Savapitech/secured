@@ -19,6 +19,7 @@ int e_delete_node(node_t **head, node_t *node)
         return RETURN_FAILURE;
     if (tmp != NULL && tmp == node) {
         *head = node->next;
+        free(node->data);
         free(node);
         return RETURN_SUCCESS;
     }
@@ -29,6 +30,7 @@ int e_delete_node(node_t **head, node_t *node)
     if (tmp == NULL)
         return RETURN_FAILURE;
     prev->next = tmp->next;
+    free(tmp->data);
     free(tmp);
     return RETURN_SUCCESS;
 }
