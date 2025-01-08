@@ -8,13 +8,14 @@
 #include "eyes.h"
 #include "secured.h"
 
-node_t *e_create_linked_list(void)
+node_t *e_create_linked_list(char *data, int hash)
 {
     node_t *list = malloc(sizeof(node_t));
 
     if (list == NULL)
         return NULL;
-    list->data = NULL;
+    list->data = data;
+    list->hash = hash;
     list->next = NULL;
     return list;
 }
