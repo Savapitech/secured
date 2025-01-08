@@ -18,7 +18,7 @@ int e_delete_node(node_t **head, node_t *node)
     if (tmp != NULL && tmp == node) {
         *head = node->next;
         free(node);
-        return;
+        return RETURN_SUCCESS;
     }
     while (tmp != NULL && tmp != node) {
         prev = tmp;

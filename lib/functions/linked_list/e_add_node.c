@@ -8,7 +8,7 @@
 #include "eyes.h"
 #include "secured.h"
 
-int e_add_node(struct node_t **head, char *data)
+int e_add_node(node_t **head, char *data)
 {
     node_t *new_node = malloc(sizeof(node_t));
     node_t *tmp = *head;
