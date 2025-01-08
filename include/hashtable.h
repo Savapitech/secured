@@ -27,7 +27,7 @@ typedef struct hashtable_s {
 int hash(char *key, int len);
 
 //create and destroy table
-hashtable_t *new_hashtable(int (*hash)(char *, int), int len);
+hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len);
 void delete_hashtable(hashtable_t *hashtable);
 
 // handle table

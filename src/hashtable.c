@@ -7,7 +7,7 @@
 
 #include "secured.h"
 
-hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
+hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len)
 {
     hashtable_t *hashtable = malloc(sizeof(hashtable_t) * len);
 
@@ -15,7 +15,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
         return FAILURE_MSG_PTR("new hastable malloc failed");
     for (int i = 0; i < len; i++) {
         hashtable[i].hash = 0;
-        hashtable[i].fnct_hash = hash;
+        hashtable[i].fnct_hash = hash_fnct;
         hashtable[i].len = len;
         hashtable[i].data = NULL;
     }
