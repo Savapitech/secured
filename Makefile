@@ -9,12 +9,16 @@ MAKEFLAGS += -j
 
 NAME := libhashtable.a
 
+TEST_NAME := testeu
+
 SRC := $(wildcard src/*.c)
 
 LIB_SRC := $(wildcard lib/functions/int/*.c)
 LIB_SRC += $(wildcard lib/functions/print/*.c)
 LIB_SRC += $(wildcard lib/functions/str/*.c)
 LIB_SRC += $(wildcard lib/functions/tab/*.c)
+
+TEST_SRC := $(wildcard tests/*.c)
 
 BUILD_DIR := .build
 
@@ -63,5 +67,13 @@ re:	fclean all
 .NOTPARALLEL: debug
 debug: CFLAGS += $(DEBUG_FLAGS)
 debug: all
+
+test: debug
+	@ $(CC) -o $(TEST_NAME) $(TEST_SRC) -I include -L. -lhashtable
+	@ $(LOG_TIME) "$(C_GREEN) CC $(C_PURPLE) $(notdir $@) $(C_RESET)"
+	@ $(LOG_TIME) "$(C_GREEN) OK  Tests compilation finished $(C_RESET)"
+
+test_run: test
+	@ ./$(TEST_NAME)
 
 .PHONY: all clean fclean re
