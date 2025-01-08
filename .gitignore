@@ -13,6 +13,7 @@
 libhashtable.a
 a.out
 test
+testeu
 
 # Build
 *.o
