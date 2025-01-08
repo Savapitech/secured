@@ -18,4 +18,3 @@ node_t *e_create_linked_list(void)
     list->next = NULL;
     return list;
 }
-g
