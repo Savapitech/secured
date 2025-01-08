@@ -31,5 +31,6 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len);
 void delete_hashtable(hashtable_t *hashtable);
 
 // handle table
+void ht_dump(hashtable_t *ht);
 
 #endif /* !HASTABLE_H_ */
