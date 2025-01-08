@@ -10,7 +10,6 @@
     #include "eyes.h"
 
 typedef struct hashtable_s {
-    int hash;
     int (*fnct_hash)(char *, int);
     int len;
     node_t *data;

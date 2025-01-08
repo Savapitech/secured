@@ -14,7 +14,6 @@ hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len)
     if (hashtable == NULL)
         return FAILURE_MSG_PTR("new hastable malloc failed");
     for (int i = 0; i < len; i++) {
-        hashtable[i].hash = 0;
         hashtable[i].fnct_hash = hash_fnct;
         hashtable[i].len = len;
         hashtable[i].data = NULL;

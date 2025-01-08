@@ -14,7 +14,7 @@ static
 void dump_data(hashtable_t *ht, size_t i)
 {
     for (; ht[i].data != NULL; ht[i].data = ht[i].data->next)
-    printf("> %01d - %s\n", ht[i].hash, ht[i].data->data);
+    printf("> %01d - %s\n", ht[i].data->hash, ht[i].data->data);
 }
 
 void ht_dump(hashtable_t *ht)
