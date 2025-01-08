@@ -7,14 +7,7 @@
 
 #ifndef HASTABLE_H_
     #define HASTABLE_H_
-
-    #include <string.h>
     #include "eyes.h"
-
-typedef struct node_s {
-    char *data;
-    struct node_s *next;
-} node_t;
 
 typedef struct hashtable_s {
     int hash;

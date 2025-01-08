@@ -7,14 +7,15 @@
 
 #ifndef EYES_H_
     #define EYES_H_
-
-    #include <stddef.h>
     #include <stdarg.h>
+    #include <stddef.h>
     #include <stdlib.h>
     #include <unistd.h>
-    #include <stdio.h>
-    #include <stddef.h>
-    #include <string.h>
+
+typedef struct node_s {
+    char *data;
+    struct node_s *next;
+} node_t;
 
 // int
 int e_compute_power_rec(int nb, int p);
@@ -24,6 +25,9 @@ int e_str_isnum(char const *str);
 int e_nb_len(int nb);
 
 // linked_list
+int e_add_node(node_t **head, char *data);
+node_t *e_create_linked_list(void);
+int e_delete_node(node_t **head, node_t *node);
 
 // print
 void e_putchar(char c);
