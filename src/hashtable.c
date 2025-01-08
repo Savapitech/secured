@@ -22,6 +22,7 @@ hashtable_t *new_hashtable(int (*hash)(char *, int), int len)
     return hashtable;
 }
 
+__attribute__((nonnull(1)))
 void delete_hashtable(hashtable_t *hashtable)
 {
     int len = hashtable[0].len;
