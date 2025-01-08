@@ -9,6 +9,7 @@
     #include "colors.h"
     #include "hashtable.h"
     #include "my.h"
+    #include <stdio.h>
     #define SECURED_H
     #define OMIT
     #define RETURN_SUCCESS 0
@@ -24,7 +25,7 @@
 
         #define HEAD_FMT HEAD_FMT_FILE HEAD_FMT_LINE "  "
 
-        #define ERR(fmt, ...) my_printf(fmt, __VA_ARGS__)
+        #define ERR(fmt, ...) printf(fmt, __VA_ARGS__)
         #define DEBUG_INTERNAL(fmt, ...) ERR(HEAD_FMT fmt, HEAD, __VA_ARGS__)
 
         #define MY_DEBUG(fmt, ...) DEBUG_INTERNAL(fmt, __VA_ARGS__)
