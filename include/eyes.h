@@ -14,6 +14,7 @@
 
 typedef struct node_s {
     char *data;
+    int hash;
     struct node_s *next;
 } node_t;
 
@@ -25,8 +26,8 @@ int e_str_isnum(char const *str);
 int e_nb_len(int nb);
 
 // linked_list
-int e_add_node(node_t **head, char *data);
-node_t *e_create_linked_list(char *data);
+int e_add_node(node_t **head, char *data, int hash);
+node_t *e_create_linked_list(char *data, int hash);
 int e_delete_node(node_t **head, node_t *node);
 
 // print
