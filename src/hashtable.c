@@ -30,9 +30,8 @@ void delete_hashtable(hashtable_t *hashtable)
         return;
     len = hashtable->len;
     for (int i = 0; i < len; i++) {
-        if (hashtable[i].data != NULL) {
+        if (hashtable[i].data != NULL)
             free(hashtable[i].data);
-        }
         hashtable[i].len = 0;
     }
     free(hashtable);

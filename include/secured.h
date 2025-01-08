@@ -8,6 +8,7 @@
 #ifndef SECURED_H
     #include "colors.h"
     #include "hashtable.h"
+    #include "my.h"
     #define SECURED_H
     #define OMIT
     #define RETURN_SUCCESS 0

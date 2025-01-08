@@ -32,5 +32,6 @@ void delete_hashtable(hashtable_t *hashtable);
 
 // handle table
 void ht_dump(hashtable_t *ht);
+int ht_insert(hashtable_t *ht, char *key, char *value);
 
 #endif /* !HASTABLE_H_ */

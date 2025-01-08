@@ -17,6 +17,9 @@ LIB_SRC := $(wildcard lib/functions/int/*.c)
 LIB_SRC += $(wildcard lib/functions/print/*.c)
 LIB_SRC += $(wildcard lib/functions/str/*.c)
 LIB_SRC += $(wildcard lib/functions/tab/*.c)
+LIB_SRC += $(wildcard lib/printf/*.c)
+LIB_SRC += $(wildcard lib/printf/baby/*.c)
+LIB_SRC += $(wildcard lib/printf/handler/*.c)
 
 TEST_SRC := $(wildcard tests/*.c)
 

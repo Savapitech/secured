@@ -9,7 +9,10 @@
 
 int main(void)
 {
-    hashtable_t *ht = new_hashtable(&hash, 4);
+    hashtable_t *ht = new_hashtable(&hash, 6);
 
+    ht_dump(ht);
+    ht_insert(ht, "oui", "non");
+    delete_hashtable(ht);
     ht_dump(ht);
 }
