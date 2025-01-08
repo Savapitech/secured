@@ -17,12 +17,8 @@ int e_add_node(node_t **head, char *data)
         return RETURN_FAILURE;
     new_node->data = data;
     new_node->next = NULL;
-    if (*head == NULL)
-        *head = new_node;
-    else {
-        while (tmp->next != NULL)
-            tmp = tmp->next;
-        tmp->next = new_node;
-    }
+    while (tmp->next != NULL)
+        tmp = tmp->next;
+    tmp->next = new_node;
     return RETURN_SUCCESS;
 }
