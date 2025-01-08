@@ -33,6 +33,7 @@ void delete_hashtable(hashtable_t *hashtable)
         if (hashtable[i].data != NULL) {
             free(hashtable[i].data);
         }
+        hashtable[i].len = 0;
     }
     free(hashtable);
 }

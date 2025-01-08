@@ -10,11 +10,13 @@
 #include "eyes.h"
 #include "secured.h"
 
-__attribute__((nonnull(1)))
 void ht_dump(hashtable_t *ht)
 {
-    size_t len = ht->len;
+    size_t len;
 
+    if (ht == NULL)
+        return;
+    len = ht->len;
     for (size_t i = 0; i < len; i++) {
         printf("[%01lu]:\n", i);
         if (ht[i].data != NULL)
