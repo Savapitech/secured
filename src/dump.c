@@ -29,7 +29,7 @@ void ht_dump(hashtable_t *ht)
         return;
     len = ht->len;
     for (size_t i = 0; i < len; i++) {
-        printf("[%01lu]:\n", i);
+        my_printf("[%01lu]:\n", i);
         if (ht[i].data != NULL)
             dump_data(ht, i);
     }
