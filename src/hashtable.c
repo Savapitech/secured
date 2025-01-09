@@ -9,12 +9,15 @@
 
 hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len)
 {
-    hashtable_t *hashtable = malloc(sizeof(hashtable_t) * len);
+    hashtable_t *hashtable;
 
-    if (hashtable == NULL)
-        return FAILURE_MSG_PTR("new hastable malloc failed");
+    if (len < 1)
+        return NULL;
     if (hash_fnct == NULL)
         return FAILURE_MSG_PTR("hash function is required");
+    hashtable = malloc(sizeof(hashtable_t) * len);
+    if (hashtable == NULL)
+        return FAILURE_MSG_PTR("new hastable malloc failed");
     for (int i = 0; i < len; i++) {
         hashtable[i].fnct_hash = hash_fnct;
         hashtable[i].len = len;
