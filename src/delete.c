@@ -12,13 +12,13 @@ static
 int check_list(int hash_vl, node_t *tmp, node_t *prev)
 {
     for (; tmp->next != NULL && tmp->hash != hash_vl; tmp = tmp->next) {
-        if (tmp->next == NULL && tmp->hash == hash_vl) {
-            prev->next = NULL;
-            free(tmp->data);
-            free(tmp);
-            return -1;
-        }
         prev = tmp;
+    }
+    if (tmp->next == NULL && tmp->hash == hash_vl) {
+        prev->next = NULL;
+        free(tmp->data);
+        free(tmp);
+        return -1;
     }
     return RETURN_SUCCESS;
 }
@@ -31,6 +31,7 @@ int delete_node(node_t **head, int hash_vl)
 
     if (*head == NULL)
         return RETURN_FAILURE;
+    MY_DEBUG_MSG("head not null.\n");
     if (tmp->data != NULL && tmp->hash == hash_vl) {
         *head = tmp->next;
         free(tmp->data);
@@ -41,8 +42,7 @@ int delete_node(node_t **head, int hash_vl)
         return RETURN_SUCCESS;
     if (tmp->next == NULL && tmp->hash != hash_vl)
         return RETURN_FAILURE;
-    free(tmp->data);
-    return (free(tmp), RETURN_SUCCESS);
+    return RETURN_SUCCESS;
 }
 
 int ht_delete(hashtable_t *ht, char *key)
