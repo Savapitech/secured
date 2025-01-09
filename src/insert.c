@@ -15,11 +15,11 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
     size_t hash_len;
 
     if (ht == NULL)
-        return -1;
+        return RETURN_FAILURE;
     hash_vl = ht->fnct_hash(key, e_strlen(key));
     hash_len = ht->len;
     if (!hash_len)
-        return -1;
+        return RETURN_FAILURE;
     hash_i = hash_vl % hash_len;
     if (ht[hash_i].data == NULL)
         ht[hash_i].data = e_create_linked_list(e_strdup(value), hash_vl);
@@ -28,6 +28,5 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
         return FAILURE_MSG("Error when inserting data in node !");
     if (ht[hash_i].data == NULL)
         return FAILURE_MSG("Cannot create linked list to insert !");
-    MY_DEBUG("Inst hash_vl [%d] hash_i [%lu]\n", hash_vl, hash_i);
-    return hash_vl;
+    return RETURN_SUCCESS;
 }

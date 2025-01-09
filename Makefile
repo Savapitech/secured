@@ -72,7 +72,7 @@ debug: CFLAGS += $(DEBUG_FLAGS)
 debug: all
 
 test: debug
-	@ $(CC) -o $(TEST_NAME) $(TEST_SRC) -I include -L. -lhashtable
+	@ $(CC) -o $(TEST_NAME) $(TEST_SRC) -I include -L. -lhashtable -lcompass
 	@ $(LOG_TIME) "$(C_GREEN) CC $(C_PURPLE) $(notdir $@) $(C_RESET)"
 	@ $(LOG_TIME) "$(C_GREEN) OK  Tests compilation finished $(C_RESET)"
 

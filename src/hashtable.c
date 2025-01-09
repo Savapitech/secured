@@ -9,8 +9,11 @@
 
 hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len)
 {
-    hashtable_t *hashtable = malloc(sizeof(hashtable_t) * len);
+    hashtable_t *hashtable;
 
+    if (len < 1)
+        return NULL;
+    hashtable = malloc(sizeof(hashtable_t) * len);
     if (hashtable == NULL)
         return FAILURE_MSG_PTR("new hastable malloc failed");
     if (hash_fnct == NULL)
