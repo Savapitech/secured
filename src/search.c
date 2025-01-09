@@ -17,6 +17,8 @@ char *ht_search(hashtable_t *ht, char *key)
         return FAILURE_MSG_PTR("Hashtable ptr is required !");
     hash_vl = ht->fnct_hash(key, e_strlen(key));
     hash_i = hash_vl % ht->len;
+    if (hash_i > (size_t)ht->len)
+        return NULL;
     finded_node = ht[hash_i].data;
     if (finded_node == NULL)
         return NULL;
