@@ -25,11 +25,14 @@ static
 void delete_nodes(hashtable_t *hashtable, int i)
 {
     node_t *tmp = hashtable[i].data;
+    node_t *prev = NULL;
 
-    while (tmp->data != NULL) {
+    while (tmp != NULL) {
+        MY_DEBUG("Deleting node : [%s]\n", tmp->data);
+        prev = tmp;
         tmp = tmp->next;
-        free(tmp->data);
-        free(tmp);
+        free(prev->data);
+        free(prev);
     }
 }
 
