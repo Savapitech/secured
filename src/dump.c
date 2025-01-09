@@ -15,9 +15,10 @@ void dump_data(hashtable_t *ht, size_t i)
 {
     node_t *tmp_node = ht[i].data;
 
-    my_printf("> %01d - %s\n", tmp_node->hash, tmp_node->data);
-    for (; tmp_node->next != NULL; tmp_node = tmp_node->next)
+    while (tmp_node != NULL) {
         my_printf("> %01d - %s\n", tmp_node->hash, tmp_node->data);
+        tmp_node = tmp_node->next;
+    }
 }
 
 void ht_dump(hashtable_t *ht)

@@ -26,5 +26,6 @@ void delete_hashtable(hashtable_t *hashtable);
 void ht_dump(hashtable_t *ht);
 int ht_insert(hashtable_t *ht, char *key, char *value);
 char *ht_search(hashtable_t *ht, char *key);
+int ht_delete(hashtable_t *ht, char *key);
 
 #endif /* !HASTABLE_H_ */
