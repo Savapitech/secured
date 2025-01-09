@@ -9,6 +9,21 @@
 #include "secured.h"
 
 static
+int check_list(int hash_vl, node_t *tmp, node_t *prev)
+{
+    for (; tmp->next != NULL && tmp->hash != hash_vl; tmp = tmp->next) {
+        if (tmp->next == NULL && tmp->hash == hash_vl) {
+            prev->next = NULL;
+            free(tmp->data);
+            free(tmp);
+            return -1;
+        }
+        prev = tmp;
+    }
+    return RETURN_SUCCESS;
+}
+
+static
 int delete_node(node_t **head, int hash_vl)
 {
     node_t *tmp = *head;
@@ -22,22 +37,12 @@ int delete_node(node_t **head, int hash_vl)
         free(tmp);
         return RETURN_SUCCESS;
     }
-    for (; tmp->next != NULL && tmp->hash != hash_vl; tmp = tmp->next) {
-        if (tmp->next == NULL && tmp->hash == hash_vl) {
-            prev->next = NULL;
-            free(tmp->data);
-            free(tmp);
-            return RETURN_SUCCESS;
-        }
-        prev = tmp;
-    }
-    if (tmp->next == NULL && tmp->hash != hash_vl) {
+    if (check_list(hash_vl, tmp, prev) == -1)
+        return RETURN_SUCCESS;
+    if (tmp->next == NULL && tmp->hash != hash_vl)
         return RETURN_FAILURE;
-    }
-    prev->next = tmp->next;
     free(tmp->data);
-    free(tmp);
-    return RETURN_SUCCESS;
+    return (free(tmp), RETURN_SUCCESS);
 }
 
 int ht_delete(hashtable_t *ht, char *key)
