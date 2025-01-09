@@ -46,21 +46,16 @@ int ht_delete(hashtable_t *ht, char *key)
     size_t hash_i;
     size_t hash_len;
 
-    MY_DEBUG_MSG("bonjour1.\n");
     if (ht == NULL)
         return RETURN_FAILURE;
-    MY_DEBUG_MSG("bonjour2.\n");
     hash_vl = ht->fnct_hash(key, e_strlen(key));
     hash_len = ht->len;
     if (!hash_len)
         return RETURN_FAILURE;
-    MY_DEBUG_MSG("bonjour3.\n");
     hash_i = hash_vl % hash_len;
     if (ht[hash_i].data == NULL)
         return RETURN_FAILURE;
-    MY_DEBUG_MSG("bonjour4.\n");
     if (delete_node(&ht[hash_i].data, hash_vl) == RETURN_FAILURE)
         return RETURN_FAILURE;
-    MY_DEBUG_MSG("bonjour5.\n");
     return RETURN_SUCCESS;
 }
