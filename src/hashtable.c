@@ -21,6 +21,18 @@ hashtable_t *new_hashtable(int (*hash_fnct)(char *, int), int len)
     return hashtable;
 }
 
+static
+void delete_nodes(hashtable_t *hashtable, int i)
+{
+    node_t *tmp = hashtable[i].data;
+
+    while (tmp->data != NULL) {
+        tmp = tmp->next;
+        free(tmp->data);
+        free(tmp);
+    }
+}
+
 void delete_hashtable(hashtable_t *hashtable)
 {
     int len;
@@ -30,7 +42,7 @@ void delete_hashtable(hashtable_t *hashtable)
     len = hashtable->len;
     for (int i = 0; i < len; i++) {
         if (hashtable[i].data != NULL)
-            free(hashtable[i].data);
+            delete_nodes(hashtable, i);
         hashtable[i].len = 0;
     }
     free(hashtable);
