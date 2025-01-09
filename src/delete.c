@@ -31,7 +31,7 @@ int delete_node(node_t **head, int hash_vl)
 
     if (*head == NULL)
         return RETURN_FAILURE;
-    MY_DEBUG_MSG("head not null.\n");
+    MY_DEBUG_MSG("head not null");
     if (tmp->data != NULL && tmp->hash == hash_vl) {
         *head = tmp->next;
         free(tmp->data);
