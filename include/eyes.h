@@ -35,6 +35,7 @@ void e_putchar(char c);
 int e_putstr(char const *str);
 int e_print_tab(char *const *tab);
 void e_puterr(char const *str);
+int e_put_nbr(int nb);
 
 // str
 char *e_revstr(char *str);
