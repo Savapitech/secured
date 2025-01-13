@@ -11,6 +11,7 @@
 
 # Bin
 libhashtable.a
+libcompass.a
 a.out
 test
 testeu
@@ -41,4 +42,4 @@ unit_tests
 *.pyc
 
 #tkt
-tests/generator.py
+tests/*

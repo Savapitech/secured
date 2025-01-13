@@ -11,14 +11,12 @@
 #include "secured.h"
 
 static
-void dump_data(hashtable_t *ht, size_t i)
+void dump_data_reverse(node_t *node)
 {
-    node_t *tmp_node = ht[i].data;
-
-    while (tmp_node != NULL) {
-        my_printf("> %01d - %s\n", tmp_node->hash, tmp_node->data);
-        tmp_node = tmp_node->next;
-    }
+    if (node == NULL)
+        return;
+    dump_data_reverse(node->next);
+    my_printf("> %01d - %s\n", node->hash, node->data);
 }
 
 void ht_dump(hashtable_t *ht)
@@ -31,6 +29,6 @@ void ht_dump(hashtable_t *ht)
     for (size_t i = 0; i < len; i++) {
         my_printf("[%01lu]:\n", i);
         if (ht[i].data != NULL)
-            dump_data(ht, i);
+            dump_data_reverse(ht[i].data);
     }
 }
