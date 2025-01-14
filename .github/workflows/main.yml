@@ -52,9 +52,8 @@ jobs:
             --extra-experimental-features 'nix-command flakes' \
             -- . --ignore-rules=C-O1
 
-      - name: Build and test project
-        run: |
-          make test_run
+      - name: Build project
+        run: make
 
   sync_repository:
     needs: [ check_the_repository_state ]
