@@ -11,15 +11,12 @@
 int e_add_node(node_t **head, char *data, int hash)
 {
     node_t *new_node = malloc(sizeof(node_t));
-    node_t *tmp = *head;
 
     if (new_node == NULL)
         return RETURN_FAILURE;
     new_node->data = data;
     new_node->hash = hash;
-    new_node->next = NULL;
-    while (tmp->next != NULL)
-        tmp = tmp->next;
-    tmp->next = new_node;
+    new_node->next = *head;
+    *head = new_node;
     return RETURN_SUCCESS;
 }
