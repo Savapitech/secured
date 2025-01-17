@@ -9,11 +9,11 @@
 
 int hash(char *key, int len)
 {
-    int hash = 0;
+    unsigned int hash = 0;
     int i = 0;
 
     for (; i < len; i++) {
-        hash += key[i];
+        hash += (unsigned char)key[i];
         hash += (hash << 10);
         hash ^= (hash >> 6);
     }
