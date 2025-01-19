@@ -33,7 +33,6 @@ void delete_nodes(hashtable_t *hashtable, int i)
     node_t *prev = NULL;
 
     while (tmp != NULL) {
-        MY_DEBUG("Deleting node : [%s]\n", tmp->data);
         prev = tmp;
         tmp = tmp->next;
         free(prev->data);

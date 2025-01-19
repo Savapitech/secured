@@ -12,6 +12,8 @@ int hash(char *key, int len)
     unsigned int hash = 0;
     int i = 0;
 
+    if (key == NULL)
+        return RETURN_FAILURE;
     for (; i < len; i++) {
         hash += (unsigned char)key[i];
         hash += (hash << 10);
