@@ -53,7 +53,7 @@ int ht_delete(hashtable_t *ht, char *key)
 
     if (ht == NULL || key == NULL)
         return RETURN_FAILURE;
-    hash_vl = ht->fnct_hash(key, e_strlen(key));
+    hash_vl = ht->fnct_hash(key, e_strlen(key)) + 1;
     hash_len = ht->len;
     if (!hash_len)
         return RETURN_FAILURE;

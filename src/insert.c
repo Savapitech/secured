@@ -32,7 +32,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
 
     if (ht == NULL || key == NULL || value == NULL)
         return RETURN_FAILURE;
-    hash_vl = ht->fnct_hash(key, e_strlen(key));
+    hash_vl = ht->fnct_hash(key, e_strlen(key)) + 1;
     hash_len = ht->len;
     hash_i = ABS(hash_vl) % hash_len;
     if (ht_search(ht, key) != NULL)
