@@ -9,7 +9,7 @@
 
 int hash(char *key, int len)
 {
-    unsigned int hash = 0;
+    int hash = 0;
     int i = 0;
 
     if (key == NULL)
