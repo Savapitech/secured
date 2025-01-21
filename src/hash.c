@@ -22,5 +22,5 @@ int hash(char *key, int len)
     hash += (hash << 3);
     hash ^= (hash >> 11);
     hash += (hash << 15);
-    return hash;
+    return ABS(hash);
 }
