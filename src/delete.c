@@ -57,7 +57,7 @@ int ht_delete(hashtable_t *ht, char *key)
     hash_len = ht->len;
     if (!hash_len)
         return RETURN_FAILURE;
-    hash_i = hash_vl % hash_len;
+    hash_i = ABS(hash_vl) % hash_len;
     if (ht[hash_i].data == NULL)
         return RETURN_FAILURE;
     if (delete_node(&ht[hash_i].data, hash_vl) == RETURN_FAILURE)
