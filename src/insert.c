@@ -34,7 +34,7 @@ int ht_insert(hashtable_t *ht, char *key, char *value)
         return RETURN_FAILURE;
     hash_vl = ht->fnct_hash(key, e_strlen(key));
     hash_len = ht->len;
-    hash_i = ABS(hash_vl) % hash_len;
+    hash_i = hash_vl % hash_len;
     if (ht_search(ht, key) != NULL)
         return update_value(ht[hash_i].data, hash_vl, value);
     if (ht[hash_i].data == NULL)
