@@ -17,6 +17,8 @@ int hash(char *key, int len)
 {
     uint64_t k = FVN_OFFSET_BASIS;
 
+    if (key == NULL)
+        return -1;
     (void)len;
     for (; *key != '\0'; key++)
         k = (k * FVN_PRIME) ^ (uint64_t)*key;
