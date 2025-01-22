@@ -5,22 +5,19 @@
 ** hash
 */
 
-#include "secured.h"
+#include <stdint.h>
 
-int hash(char *key, int len)
+static
+const uint64_t FVN_PRIME = 0x100000001b3;
+
+int hash(char *key, int len __attribute__((unused)))
 {
-    int hash = 0;
-    int i = 0;
+    uint32_t hash = 2166136261U;
 
-    if (key == NULL)
-        return RETURN_FAILURE;
-    for (; i < len; i++) {
-        hash += (unsigned char)key[i];
-        hash += (hash << 10);
-        hash ^= (hash >> 6);
+    while (*key) {
+        hash ^= (unsigned char)(*key);
+        hash *= FVN_PRIME;
+        key++;
     }
-    hash += (hash << 3);
-    hash ^= (hash >> 11);
-    hash += (hash << 15);
-    return ABS(hash);
+    return hash & 0x7FFFFFFF;
 }
