@@ -61,7 +61,7 @@ unsigned int process_block(unsigned int h, unsigned int k)
     return h;
 }
 
-unsigned int hash(const char *key)
+int hash(const char *key)
 {
     uint32_t h = 42;
     uint32_t len = e_strlen(key);
