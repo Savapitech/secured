@@ -15,6 +15,7 @@ libcompass.a
 a.out
 test
 testeu
+*.a
 
 # Build
 *.o
