@@ -11,7 +11,7 @@
 #include <string.h>
 #include <time.h>
 
-#include "secured.h"
+#include "hashtable.h"
 
 char *generate_random_string(size_t length)
 {
@@ -19,13 +19,14 @@ char *generate_random_string(size_t length)
         "zABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     size_t charset_size = sizeof(charset) - 1;
     char *random_string = malloc(length + 1);
+    int key;
 
     if (!random_string) {
         fprintf(stderr, "Erreur d'allocation de mémoire\n");
         exit(EXIT_FAILURE);
     }
     for (size_t i = 0; i < length; i++) {
-        int key = rand() % charset_size;
+        key = rand() % charset_size;
         random_string[i] = charset[key];
     }
     random_string[length] = '\0';
@@ -34,12 +35,14 @@ char *generate_random_string(size_t length)
 
 int main(void)
 {
-    hashtable_t *ht = new_hashtable(&hash, 100);
+    hashtable_t *ht = new_hashtable(&hash, 10000);
+    char *random_key;
+    char *random_value;
 
     srand(time(NULL));
-    for (size_t i = 1000; i > 0; i--) {
-        char *random_key = generate_random_string(10);
-        char *random_value = generate_random_string(10);
+    for (size_t i = 100000; i > 0; i--) {
+        random_key = generate_random_string(100);
+        random_value = generate_random_string(100);
         ht_insert(ht, random_key, random_value);
         free(random_key);
         free(random_value);
